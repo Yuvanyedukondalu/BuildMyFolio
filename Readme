@@ -1,188 +1,122 @@
-# 🤖 AI Resume & Portfolio Builder
+✨ AI Resume & Portfolio Builder
 
-An end-to-end AI-powered platform that generates tailored resumes, cover letters, and portfolio pages for students and freshers using NLP and ML techniques.
+Generate tailored resumes, cover letters, and portfolio websites in seconds — completely free, no login required.
 
----
+🧠 About
 
-## 🗂️ Project Structure
+AI Resume & Portfolio Builder is an easy-to-use tool that uses AI and NLP techniques to help students and freshers create professional resumes, cover letters, and portfolio websites automatically. It analyzes skills, projects, and target job roles to generate polished and recruiter-friendly documents and pages.
 
-```
+🚀 Features
+
+📄 ATS-optimized resume tailored to any job description
+
+✉️ Personalized cover letter
+
+🌐 Auto-generated portfolio website
+
+📊 ATS score and keyword insights
+
+💡 Skill gap analysis
+
+🔍 Keyword and STAR-method bullet enhancer
+
+🖥️ Downloadable PDF/Word outputs
+
+⭐ Free to use, no login required
+
+📦 Tech Stack
+
+Frontend: HTML, CSS, JavaScript
+
+Backend: Python, FastAPI
+
+AI/ML: NLP, TF-IDF, cosine similarity
+
+Deployment: Docker, Nginx
+
+Most components are implemented using plain Python with no paid AI APIs required, helping you learn core techniques while building something real.
+
+📁 Project Structure
 ai-resume-builder/
-├── frontend/
-│   └── index.html              ← Single-file React-like UI (Vanilla JS)
-├── backend/
-│   ├── main.py                 ← FastAPI REST API
-│   ├── ml_engine.py            ← Core AI/ML generation engine
-│   ├── requirements.txt
-│   └── Dockerfile
-├── ml_model/
-│   └── ml_pipeline.py          ← Standalone ML pipeline (TF-IDF, Classifier, Gap Analyzer)
+├── frontend/            # User interface  
+├── backend/             # FastAPI server  
+├── ml_model/            # Machine learning pipeline  
 ├── docker-compose.yml
-├── nginx.conf
 └── README.md
-```
-
----
-
-## ✨ Features
-
-| Feature | Description |
-|---|---|
-| 📄 **AI Resume Generation** | Auto-generates ATS-optimized resume with action verbs, bullet points, and keyword matching |
-| ✉️ **Cover Letter Generator** | Personalized cover letter tailored to company & job description |
-| 🌐 **Portfolio Builder** | Structured portfolio with project cards, skill charts, and bio |
-| 📊 **ATS Score Checker** | Scores resume against job description with detailed breakdown |
-| 🎯 **Skill Gap Analysis** | Identifies missing skills and provides a learning roadmap |
-| 🔍 **Keyword Extraction** | TF-IDF based keyword matching between resume and JD |
-| 🏷️ **Domain Classification** | Classifies resume domain (SWE, ML, DevOps, Mobile, etc.) |
-| ✏️ **Bullet Point Enhancer** | Scores and improves experience bullets using STAR method |
-
----
-
-## 🚀 Quick Start
-
-### Option 1: Docker (Recommended)
-
-```bash
-git clone <repo-url>
+🛠️ Installation
+🔹 Option A: With Docker (Recommended)
+git clone https://github.com/<your-username>/ai-resume-builder.git
 cd ai-resume-builder
 docker-compose up --build
-```
 
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:8000
-- **API Docs**: http://localhost:8000/docs
+App: http://localhost:3000
 
----
+API Docs: http://localhost:8000/docs
 
-### Option 2: Manual Setup
+🔹 Option B: Manual Setup
 
-**Backend:**
-```bash
+Backend
+
 cd backend
 pip install -r requirements.txt
 uvicorn main:app --reload --port 8000
-```
 
-**Frontend:**
-```bash
+Frontend
+
 cd frontend
-# Serve with any static server:
 python -m http.server 3000
-# or
-npx serve .
-```
+📖 Usage
 
----
+Open the app in your browser
 
-## 🔌 API Endpoints
+Enter your details or upload a resume
 
-| Method | Endpoint | Description |
-|---|---|---|
-| `GET` | `/` | Health check |
-| `POST` | `/api/generate` | Generate resume, cover letter, portfolio |
-| `POST` | `/api/ats-score` | Calculate ATS compatibility score |
-| `POST` | `/api/enhance-summary` | Generate professional summary |
-| `POST` | `/api/suggest-skills` | Suggest skills based on target role |
-| `POST` | `/api/improve-bullets` | Improve bullet points (STAR method) |
-| `GET` | `/api/templates` | Get available resume templates |
+Paste your target job description
 
-**Sample Request — `/api/generate`:**
-```json
-{
-  "profile": {
-    "name": "Priya Sharma",
-    "email": "priya@example.com",
-    "target_role": "Full Stack Developer",
-    "target_industry": "technology",
-    "skills": ["Python", "React", "Docker", "PostgreSQL"],
-    "education": [{"institution": "IIT Hyderabad", "degree": "B.Tech", "field": "CS", "start_year": 2021}],
-    "projects": [{"name": "SmartResume AI", "description": "AI-powered resume builder", "technologies": ["Python", "React"]}]
-  },
-  "generate_resume": true,
-  "generate_cover_letter": true,
-  "generate_portfolio": true,
-  "company_name": "Google",
-  "job_description": "Looking for a Full Stack Developer...",
-  "tone": "professional"
-}
-```
+Generate resume, cover letter, and portfolio
 
----
+Download outputs as PDF or Word
 
-## 🧠 ML Components
+🤝 Contributing
 
-### 1. `TFIDFVectorizer` (ml_pipeline.py)
-- Pure Python TF-IDF implementation (no sklearn)
-- Supports n-gram extraction (1-gram, 2-gram)
-- Cosine similarity for resume-JD matching
+Contributions are welcome! If you want to improve this project:
 
-### 2. `ResumeDomainClassifier` (ml_pipeline.py)
-- Keyword frequency-based domain classification
-- Classifies into 6 domains: Software, Data Science, DevOps, Mobile, Design, Finance
+Fork the repository
 
-### 3. `SkillGapAnalyzer` (ml_pipeline.py)
-- Analyzes gap between candidate and required skills
-- Maps transferable skills using a skill taxonomy
-- Generates personalized learning plans with time estimates
+Create a new branch (git checkout -b feature/YourFeature)
 
-### 4. `BulletPointScorer` (ml_pipeline.py)
-- Scores resume bullets on 5 dimensions: action verb, quantification, length, technical depth, impact clarity
-- STAR-method aligned scoring (0–100)
-- Grade output (A/B/C/D)
+Make your changes
 
-### 5. `ResumeAIEngine` (ml_engine.py)
-- Orchestrates all generation: resume, cover letter, portfolio, skills analysis
-- Keyword extraction using frequency + known tech-term matching
-- ATS scoring with keyword match + format + verb + quantification
+Submit a pull request
 
----
+Areas where help is valuable:
 
-## 🔮 Production Upgrade Path
+New resume/portfolio templates
 
-To make this production-grade, integrate:
+LinkedIn auto-import feature
 
-```python
-# In ml_engine.py — replace _generate_summary() with:
-import anthropic
+Multi-language support
 
-client = anthropic.Anthropic(api_key="YOUR_KEY")
+Cloud deployment guides
 
-def generate_summary_with_claude(profile, jd, tone):
-    response = client.messages.create(
-        model="claude-opus-4-6",
-        max_tokens=500,
-        messages=[{
-            "role": "user",
-            "content": f"Generate a {tone} resume summary for: {json.dumps(profile)}\nJob: {jd}"
-        }]
-    )
-    return response.content[0].text
-```
+Testing and documentation
 
----
+🌱 Roadmap
 
-## 🧪 Running ML Tests
+Planned improvements include:
 
-```bash
-cd ml_model
-python ml_pipeline.py
-```
+LinkedIn and GitHub import integration
 
-Expected output:
-```
-✅ ML Pipeline working correctly!
-   Job Match Similarity: 43.2%
-   Domain: Software Engineering
-   Skill Match: 45.5%
-```
+Cloud hosted version
 
----
+LLM integration for smarter generation
 
-## 📦 Tech Stack
+Saved history and user dashboard
 
-- **Frontend**: Vanilla JS + CSS (no build step, no framework dependency)
-- **Backend**: FastAPI + Pydantic v2
-- **ML**: Pure Python NLP (TF-IDF, cosine similarity, Naive Bayes classification)
-- **Serving**: Nginx + Uvicorn
-- **Containerization**: Docker + Docker Compose
+📝 License
+
+This project is open-source under the MIT License — free to use, share, and enhance.
+
+⭐ Support
+
+If this project helped you, please ⭐ star the repo! It helps others discover and use it.
