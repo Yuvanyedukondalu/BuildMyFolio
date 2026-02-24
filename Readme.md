@@ -1,8 +1,8 @@
-🤖 AI Resume & Portfolio Builder
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/02ba29bb-ddf6-4461-b54e-65fda6669ebc/deploy-status)](https://app.netlify.com/projects/buildmyfolioweb/deploys)
 
-🚀 Live Demo : [buildmyfolioapp.netlify.app]  (https://buildmyfolioapp.netlify.app)
+# 🤖 AI Resume & Portfolio Builder
+
+🚀 **Live Demo**: [buildmyfolioweb.netlify.app](https://buildmyfolioweb.netlify.app)
 Generate tailored resumes, cover letters, and portfolio websites in seconds — completely free, no login required.
 
 🧠 About
